@@ -1,61 +1,66 @@
 # Sales Analysis and Visualization
 
 ## Project overview
-Exploratory analysis of a store's 2019 electronics sales data using Python. The project combines monthly CSV files, cleans the resulting dataset, investigates sales patterns, and translates the findings into recommendations for merchandising, inventory planning, and promotion timing.
+This project explores 2019 retail sales data using Python and pandas. The notebook combines monthly sales files into one dataset, prepares the data for analysis, creates sales-related variables, and examines sales performance across time, cities, products, and orders.
+
+The analysis is intended to demonstrate an end-to-end exploratory data analysis (EDA) workflow: loading multiple files, cleaning records, transforming fields, answering business questions, and communicating patterns through visualisations.
 
 ## Business questions
-- Which months and cities generated the highest sales?
-- Which products sold most frequently, and which contributed high sales value?
-- At what times of day were orders most common?
+- How did sales vary from month to month?
+- Which cities generated the highest sales value?
+- Which products had the highest order quantities?
+- At what hours were orders most common?
 - Which products appeared together in the same order?
-- How can these findings inform inventory and marketing decisions?
 
-## Tools
-- Python
-- pandas and NumPy for data preparation and analysis
-- Matplotlib and Seaborn for visualisation
-- Power BI for a dashboard (add a dashboard screenshot to this repository to make it viewable here)
+## Tools and libraries
+- **Python** — analysis workflow
+- **pandas** — loading, combining, cleaning, and aggregating tabular data
+- **NumPy** — numerical operations
+- **Matplotlib and Seaborn** — charts and visual exploration
+- **Power BI** — a dashboard is referenced as part of the project; dashboard images are not currently included in this repository
 
-## Workflow
-1. Combined monthly CSV files into one dataset.
-2. Removed invalid/blank rows and repeated header rows introduced during file concatenation.
-3. Converted date and numeric fields to suitable data types.
-4. Created a sales-value field from quantity ordered multiplied by unit price.
-5. Analysed sales by month, city, hour, and product.
-6. Examined products that appeared in the same order and visualised selected findings.
+## Data preparation
+The notebook reads multiple monthly CSV files and combines them into a single dataset. During preparation, it handles blank or invalid rows and repeated header rows that can occur when files are concatenated. Date and numeric fields are converted to appropriate types so they can be grouped and analysed consistently.
 
-## Findings reported in the notebook
-- December had the highest monthly sales.
-- San Francisco, California, was reported as the highest-sales city.
-- AAA Batteries (4-pack) had the highest quantity ordered in the analysis.
-- The notebook identified order activity peaks around 10:00 and 19:00.
-- Product-pair analysis highlighted phones and related accessories appearing in the same orders.
+A sales-value field is calculated using unit price multiplied by quantity ordered. This allows the notebook to analyse sales value separately from the number of units sold.
 
-These are descriptive findings from this dataset, not proof that promotions at those times will cause higher sales. Validate the results against the cleaned data before using them for business decisions.
+## Analysis performed
+### Monthly sales
+Sales values are grouped by month to compare performance throughout 2019.
 
-## Recommendations
-- Plan inventory and fulfilment capacity ahead of the December peak.
-- Compare city-level performance with marketing spend, margins, and customer counts before reallocating budget.
-- Test promotion timing using controlled experiments rather than relying on order volume alone.
-- Review frequently co-purchased products when designing bundles or cross-sell placements.
+### City-level sales
+The notebook groups sales by city to examine geographic differences in sales value.
+
+### Product demand
+Product order quantities are aggregated to identify products with high demand.
+
+### Order timing
+Order timestamps are used to examine order volume by hour of day.
+
+### Products purchased together
+Order identifiers are used to explore products that occur in the same order, providing a view of common product combinations.
+
+## Findings recorded in the notebook
+The notebook reports that December had the highest monthly sales and San Francisco, California, had the highest city-level sales. It identifies AAA Batteries (4-pack) as the product with the highest quantity ordered and highlights order activity around 10:00 and 19:00. The notebook also explores product pairs, including phones and related accessories.
+
+These findings reflect the analysis recorded in the notebook and should be interpreted in the context of the source dataset and the notebook's cleaning and aggregation logic.
 
 ## Repository contents
-- `sales analysys.ipynb` — analysis notebook.
+- `sales analysys.ipynb` — Jupyter notebook containing data preparation, analysis, and visualisations.
+- `.gitignore` — Git ignore configuration.
 
-## How to run
-1. Clone or download this repository.
-2. Install the required Python libraries: `pip install pandas numpy matplotlib seaborn`.
-3. Place the source monthly CSV files in the location expected by the notebook, or update the notebook's file path.
-4. Run the notebook from top to bottom.
+## Running the project
+1. Clone or download the repository.
+2. Install the main Python dependencies:
 
-The source sales CSV files are not currently listed in this repository, so you must supply them locally before rerunning the analysis.
+   ```bash
+   pip install pandas numpy matplotlib seaborn jupyter
+   ```
 
-## Next improvements
-- Add the dataset source and licensing/usage details.
-- Add a data dictionary and a short data-quality summary.
-- Add exported charts and a Power BI dashboard screenshot under an `images/` folder.
-- Report exact revenue totals and product/city rankings from the cleaned dataset.
-- Replace hard-coded file paths with a relative project path.
+3. Place the monthly source CSV files in the location expected by the notebook, or update the file path in the data-loading cell.
+4. Launch Jupyter Notebook and run the notebook cells in order.
+
+The source monthly CSV files are not currently included in this repository, so they must be supplied locally before the complete analysis can be rerun.
 
 ## Author
 Henry Odionye
