@@ -37,14 +37,14 @@ This project combines monthly retail transaction CSV files and analyses revenue,
 ## How to run
 
 1. Install dependencies with `python -m pip install -r requirements.txt`.
-2. Create `data/Sales_Data/` beside the notebook and place the monthly source CSV files there. Expected fields include `Order ID`, `Product`, `Quantity Ordered`, `Price Each`, `Order Date`, and `Purchase Address`.
+2. Keep the included `Sales_*.csv` monthly files in the repository root, or place them in `data/Sales_Data/`. Expected fields include `Order ID`, `Product`, `Quantity Ordered`, `Price Each`, `Order Date`, and `Purchase Address`.
 3. Open `sales analysys.ipynb` in Jupyter and run cells from top to bottom.
 
 The notebook creates `output/` and saves the cleaned dataset and summary tables there.
 
 ## Limitations
 
-The raw monthly CSV files are not included in the repository. Results therefore depend on the dataset files supplied by the person running the notebook. This is descriptive analysis and does not establish causes for observed differences.
+The monthly CSV files included here are the input data for this analysis. Results may differ if you replace them with another version of the dataset. This is descriptive analysis and does not establish causes for observed differences.
 
 ## Author
 
