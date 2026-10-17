@@ -1,66 +1,51 @@
-# Sales Analysis and Visualization
+# Sales Analysis and Visualisation
 
 ## Project overview
-This project explores 2019 retail sales data using Python and pandas. The notebook combines monthly sales files into one dataset, prepares the data for analysis, creates sales-related variables, and examines sales performance across time, cities, products, and orders.
 
-The analysis is intended to demonstrate an end-to-end exploratory data analysis (EDA) workflow: loading multiple files, cleaning records, transforming fields, answering business questions, and communicating patterns through visualisations.
+This project combines monthly retail transaction CSV files and analyses revenue, city-level performance, order timing, product demand, and products purchased together.
 
-## Business questions
-- How did sales vary from month to month?
-- Which cities generated the highest sales value?
-- Which products had the highest order quantities?
-- At what hours were orders most common?
-- Which products appeared together in the same order?
+## Tools
 
-## Tools and libraries
-- **Python** — analysis workflow
-- **pandas** — loading, combining, cleaning, and aggregating tabular data
-- **NumPy** — numerical operations
-- **Matplotlib and Seaborn** — charts and visual exploration
-- **Power BI** — a dashboard is referenced as part of the project; dashboard images are not currently included in this repository
-
-## Data preparation
-The notebook reads multiple monthly CSV files and combines them into a single dataset. During preparation, it handles blank or invalid rows and repeated header rows that can occur when files are concatenated. Date and numeric fields are converted to appropriate types so they can be grouped and analysed consistently.
-
-A sales-value field is calculated using unit price multiplied by quantity ordered. This allows the notebook to analyse sales value separately from the number of units sold.
-
-## Analysis performed
-### Monthly sales
-Sales values are grouped by month to compare performance throughout 2019.
-
-### City-level sales
-The notebook groups sales by city to examine geographic differences in sales value.
-
-### Product demand
-Product order quantities are aggregated to identify products with high demand.
-
-### Order timing
-Order timestamps are used to examine order volume by hour of day.
-
-### Products purchased together
-Order identifiers are used to explore products that occur in the same order, providing a view of common product combinations.
-
-## Findings recorded in the notebook
-The notebook reports that December had the highest monthly sales and San Francisco, California, had the highest city-level sales. It identifies AAA Batteries (4-pack) as the product with the highest quantity ordered and highlights order activity around 10:00 and 19:00. The notebook also explores product pairs, including phones and related accessories.
-
-These findings reflect the analysis recorded in the notebook and should be interpreted in the context of the source dataset and the notebook's cleaning and aggregation logic.
+- Python
+- pandas and NumPy
+- Matplotlib
+- Jupyter Notebook
 
 ## Repository contents
-- `sales analysys.ipynb` — Jupyter notebook containing data preparation, analysis, and visualisations.
-- `.gitignore` — Git ignore configuration.
 
-## Running the project
-1. Clone or download the repository.
-2. Install the main Python dependencies:
+- `sales analysys.ipynb` — data preparation and analysis workflow.
+- `requirements.txt` — Python dependencies.
+- Monthly `Sales_*.csv` source files — included at the repository root; the notebook also supports `data/Sales_Data/`.
+- `output/` — generated cleaned data and summary tables.
 
-   ```bash
-   pip install pandas numpy matplotlib seaborn jupyter
-   ```
+## Workflow
 
-3. Place the monthly source CSV files in the location expected by the notebook, or update the file path in the data-loading cell.
-4. Launch Jupyter Notebook and run the notebook cells in order.
+1. Load monthly CSV files and combine them into one dataframe.
+2. Validate required columns, remove repeated header rows, parse dates and numeric fields, and report invalid rows.
+3. Calculate transaction revenue as quantity ordered multiplied by unit price.
+4. Compare revenue by month and city/state.
+5. Count unique orders by hour, summarise product demand and revenue, and identify product pairs co-occurring in the same order.
+6. Export cleaned data and summary tables under `output/`.
 
-The source monthly CSV files are not currently included in this repository, so they must be supplied locally before the complete analysis can be rerun.
+## Interpretation notes
+
+- The hourly analysis counts unique orders, not revenue. A higher order count does not necessarily imply higher revenue.
+- Product co-occurrence describes products appearing in the same order; it does not establish causation.
+- City/state extraction assumes the source address uses a comma-separated street, city, and state/postal-code format.
+- The notebook reports invalid or missing required values and excludes those rows from the core analysis.
+
+## How to run
+
+1. Install dependencies with `python -m pip install -r requirements.txt`.
+2. Keep the included `Sales_*.csv` monthly files in the repository root, or place them in `data/Sales_Data/`. Expected fields include `Order ID`, `Product`, `Quantity Ordered`, `Price Each`, `Order Date`, and `Purchase Address`.
+3. Open `sales analysys.ipynb` in Jupyter and run cells from top to bottom.
+
+The notebook creates `output/` and saves the cleaned dataset and summary tables there.
+
+## Limitations
+
+The monthly CSV files included here are the input data for this analysis. Results may differ if you replace them with another version of the dataset. This is descriptive analysis and does not establish causes for observed differences.
 
 ## Author
+
 Henry Odionye
