@@ -15,7 +15,7 @@ This project combines monthly retail transaction CSV files and analyses revenue,
 
 - `sales analysys.ipynb` — data preparation and analysis workflow.
 - `requirements.txt` — Python dependencies.
-- `data/Sales_Data/` — expected location for monthly source CSVs; raw data is not included in this repository.
+- Monthly `Sales_*.csv` source files — included at the repository root; the notebook also supports `data/Sales_Data/`.
 - `output/` — generated cleaned data and summary tables.
 
 ## Workflow
